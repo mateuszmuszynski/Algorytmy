@@ -1,0 +1,301 @@
+﻿300
+50.352301 18.120389 Błękitna 9, Kędzierzyn-Koźle, Poland
+51.776747 21.68162 Kownacica 38, 08-460 Kownacica, Poland
+50.438379 16.654976 plac Bolesława Chrobrego 5, 57-300 Kłodzko, Poland
+52.630158 23.290261 Zaleszany 48, 17-250 Zaleszany, Poland
+51.297983 18.260588 Stary Ochędzyn 45, 98-420 Stary Ochędzyn, Poland
+54.056266 16.834133 Świerzno 27, 77-207 Świerzno, Poland
+53.012922 21.471844 Żerań Duży 1, 07-415 Żerań Duży, Poland
+52.07436 16.649619 Boczna 29, 64-000 Kościan, Poland
+50.732668 21.65326 Dacharzów 1, 27-612 Dacharzów, Poland
+49.958116 18.579001 Henryka Sienkiewicza 4, Jastrzębie-Zdrój, Poland
+54.248801 21.260608 Modgarby 15, 11-410 Modgarby, Poland
+51.57522 21.241257 Brody 34, 26-631 Brody, Poland
+51.862209 20.885412 Wybickiego 3, 05-600 Grójec, Poland
+51.758828 20.324203 Komorów 51, 96-214 Komorów, Poland
+49.579392 21.059777 Ropa 97, 38-312 Ropa, Poland
+52.342483 19.628308 Suserz 27, 09-550 Suserz, Poland
+49.665507 19.586756 Zawoja 1990, 34-222 Zawoja, Poland
+52.427941 18.15917 Wola Spławiecka 14, 62-540 Wola Spławiecka, Poland
+52.326131 17.606315 Gutowo Wielkie 8, 62-300 Gutowo Wielkie, Poland
+51.007108 19.947521 Boża Wola 33, 29-120 Boża Wola, Poland
+53.657105 17.941471 Zielona Łąka 1, 89-504 Zielona Łąka, Poland
+53.217864 21.024354 Olszewka 149, 06-323 Olszewka, Poland
+50.54192 20.995842 Podlesie 37, 28-142 Podlesie, Poland
+52.069359 20.440154 Jana Skrowaczewskiego 1, Żyrardów, Poland
+52.240851 17.51462 Skotniki 68, 62-321 Skotniki, Poland
+52.638651 17.719457 Ochodza 25, 62-240 Ochodza, Poland
+52.430544 16.601863 Więckowicka 23, 62-080 Ceradz Kościelny, Poland
+51.487004 21.807717 Oleksów 17, 26-920 Oleksów, Poland
+50.439317 16.429741 Kryształowa 20, 57-330 Szczytna, Poland
+51.967149 20.545018 Ługowa 35, 96-320 Mszczonów, Poland
+52.999951 23.908873 Dworna 34, 16-050 Jałówka, Poland
+51.09158 16.92227 Chłopska 60, 52-443 Wrocław, Poland
+49.484238 19.624152 Lipnica Wielka 347, 34-483 Lipnica Wielka, Poland
+51.872275 15.310541 Koźla 35, 66-014 Koźla, Poland
+53.562384 21.17046 Jeruty 32, 12-140 Jeruty, Poland
+50.42349 19.752108 Miechówka 20, 32-340 Miechówka, Poland
+53.478704 17.967912 Bysławek 27, 89-510 Bysławek, Poland
+52.140352 22.963105 Droblin 46, 21-542 Droblin, Poland
+54.316713 17.547657 Osowskie 2, 77-115 Osowskie, Poland
+51.181084 16.124119 Żytnia, 59-223 Legnica, Poland
+51.5053 15.805929 Wilkocin-Przemków, Poland
+50.127989 20.766987 Wał-Ruda 167, 33-133 Wał-Ruda, Poland
+53.853367 21.492243 Cudnochy 16, 11-730 Cudnochy, Poland
+52.520117 16.47559 Jeziorna 5, 64-530 Komorowo, Poland
+51.181364 21.449827 Jaworska Wola 92, 27-350 Jaworska Wola, Poland
+54.23393 19.68791 Błudowo 10, 14-420 Błudowo, Poland
+54.026804 18.574895 Ciecholewy 9, 83-207 Ciecholewy, Poland
+51.454128 19.097083 Jawor 22A, 97-425 Jawor, Poland
+49.839739 21.782641 Brzeżanka 15, 38-100 Brzeżanka, Poland
+50.699361 23.395769 Mocówka 48, 22-437 Mocówka, Poland
+50.320019 20.523911 Grabówka 4, 28-506 Cieszkowy, Poland
+52.982106 18.544224 Lisia 3, 87-103 Mała Nieszawka, Poland
+53.544309 15.816052 Połczyńska 3, 78-500 Drawsko Pomorskie, Poland
+52.206103 20.813539 Zatorze 4, 05-850 Ożarów, Poland
+50.865852 15.786619 Czarny Strumień 14, Łomnica, Poland
+51.265269 16.004844 Dobroszów 52, 59-225 Dobroszów, Poland
+52.964155 21.860841 Wiśniewo 19, 07-407 Wiśniewo, Poland
+54.539833 16.531512 Nadmorska 25, 76-107 Jarosławiec, Poland
+50.217611 20.640232 Morawianki 19, 28-512 Morawianki, Poland
+52.206945 16.136942 Kuźnica Zbąska 8, 64-308 Kuźnica Zbąska, Poland
+54.294463 22.215688 Skocze 3, 19-500 Skocze, Poland
+52.962504 17.184134 Lipiny 60, 64-831 Lipiny, Poland
+52.141081 21.403976 Wypoczynkowa 16H, 05-408 Lipowo, Poland
+52.535144 21.613283 Pogorzelec 47, 07-130 Pogorzelec, Poland
+51.096592 16.032603 Sichów 19, 59-424 Sichów, Poland
+53.187574 22.104941 Piątnica Włościańska 96A, 18-421 Piątnica Włościańska, Poland
+53.083033 16.867399 Krzewina 6B, 64-810 Krzewina, Poland
+49.653996 21.135903 Lipowa 6, 38-320 Gorlice, Poland
+49.841955 20.223441 Kawec 14, 32-414 Kawec, Poland
+50.132999 19.875219 Graniczna 72, 32-089 Giebułtów, Poland
+54.132703 22.917944 S61, 16-402 Suwałki, Poland
+52.799182 17.875649 Obudno 36, 88-410 Obudno, Poland
+53.187555 18.094423 Nidzicka 3, 86-031 Niwy, Poland
+50.608527 18.628463 Strażacka 52, 42-700 Solarnia, Poland
+51.076141 20.014398 Stanisławów 8, 26-260 Stanisławów, Poland
+53.840396 18.584899 Grabowo 65, 83-212 Grabowo, Poland
+52.413213 20.370394 Zarębin 25, 09-150 Zarębin, Poland
+51.076718 15.339906 Olszyna Dolna 9, 59-830 Olszyna Dolna, Poland
+53.168733 21.416102 Aleksandrowo 23B, 07-402 Aleksandrowo, Poland
+53.067915 20.859765 Mchowo 58, 06-300 Mchowo, Poland
+53.670866 20.164987 Parwółki 12, 14-133 Parwółki, Poland
+53.17032 16.739537 aleja Niepodległości 137, Piła, Poland
+51.832305 21.735256 Górzno 25, 08-404 Górzno, Poland
+51.731297 21.175856 Brzozówka 43A, 26-902 Brzozówka, Poland
+50.412093 23.521138 Korhynie 41, 22-664 Korhynie, Poland
+53.170104 22.084906 Szosa Zambrowska 63, Łomża, Poland
+53.06786 21.527133 Władysława Broniewskiego 18, 07-415 Olszewo-Borki, Poland
+53.357963 21.177691 Czarnia 69, 07-431 Czarnia, Poland
+53.260232 20.620415 Szemplino Wielkie 11, 13-113 Szemplino Wielkie, Poland
+52.777614 17.19386 Długa Wieś 11, 62-100 Długa Wieś, Poland
+52.677294 16.643109 Jaryszewo 33, 64-520 Jaryszewo, Poland
+51.160664 19.887123 Będzyn 12, 97-510 Będzyn, Poland
+52.587848 23.451681 Policzna 118, 17-250 Policzna, Poland
+52.488448 22.897184 Romanówka 56, 17-300 Romanówka, Poland
+54.110987 17.557127 Ugoszcz 99, 77-142 Ugoszcz, Poland
+54.010889 16.984178 Czereśniowa 20, 77-200 Miastko, Poland
+52.962051 21.635066 Bobin 11, 07-407 Bobin, Poland
+50.284936 21.60883 Przyłęk 28, 36-107 Przyłęk, Poland
+53.057125 20.185402 Zawady 66, 06-545 Zawady, Poland
+53.809575 21.222814 Dobroszewo 1A, 11-700 Grabowo, Poland
+53.617365 17.450508 Młyńska 3, 77-300 Wierzchowo-Dworzec, Poland
+51.142106 18.534036 Ożarów 266, 98-345 Ożarów, Poland
+53.910122 17.100809 Działek 31, 77-220 Działek, Poland
+51.434597 18.183888 Mieleszówka 19, 63-505 Mieleszówka, Poland
+50.100362 23.178845 Krowica Lasowa 49, 37-625 Krowica Lasowa, Poland
+52.194368 19.234424 Kalinowa 1, 99-300 Kalinowa, Poland
+51.898814 14.90077 Dobre 3, 66-633 Dobre, Poland
+53.994773 20.983135 Kolno 74, 11-311 Kolno, Poland
+52.659355 15.950862 Zatom Nowy 25, 64-400 Zatom Nowy, Poland
+52.175703 22.554945 Wólka Soseńska 14, 08-140 Wólka Soseńska, Poland
+49.896663 22.733774 Olszynka 127, 37-717 Olszynka, Poland
+49.794172 22.177586 Łubno 302, 36-065 Łubno, Poland
+50.183345 22.379159 Wólka Grodziska 188, 37-306 Wólka Grodziska, Poland
+52.949065 20.951743 Lisiogóra 6, 06-300 Lisiogóra, Poland
+53.408935 22.341622 Słucz 132, 19-213 Słucz, Poland
+54.166599 23.396922 Radziucie 24, 16-500 Radziucie, Poland
+52.658535 16.615252 Sycyn 2, 64-606 Sycyn, Poland
+51.321359 21.61568 Wólka Szelężna 119, 26-700 Wólka Szelężna, Poland
+52.741235 15.156399 Złotego Smoka 9, 66-400 Gorzów Wielkopolski, Poland
+51.40153 20.152679 Kalinówka 4, 26-332 Sławno-Kolonia, Poland
+53.599753 16.767615 Brzozówka 1, 64-965 Brzozówka, Poland
+53.690146 15.281863 Łosośniczka 12, 72-317 Łosośniczka, Poland
+49.979292 21.932509 Tkaczowa 101, 36-040 Boguchwała, Poland
+50.734069 22.982612 Rozłopy 37, 22-448 Rozłopy, Poland
+52.363619 17.641449 Grzybowo 14, 62-309 Grzybowo, Poland
+51.027526 22.635686 Piotrków-Kolonia 19, 23-114 Piotrków-Kolonia, Poland
+53.121641 18.688849 Gostkowo 129, 87-148 Gostkowo, Poland
+53.98539 20.299608 Łęgno 29, 11-040 Łęgno, Poland
+50.837595 18.862962 Długi Kąt 102, 42-133 Długi Kąt, Poland
+52.723512 23.811464 Pogorzelce 3, 17-230 Pogorzelce, Poland
+54.355197 18.479487 Stokłosy 14, Gdańsk, Poland
+53.586463 15.401618 Zwierzynek 4, 73-152 Zwierzynek, Poland
+51.678589 18.447673 Woleń 26, 98-235 Woleń, Poland
+49.774305 21.484054 Kowalowy 55, 38-200 Kowalowy, Poland
+52.432272 19.495404 Andrzeja Czapskiego 51, 09-500 Gostynin, Poland
+53.583685 20.753846 Waplewo 15A, 12-122 Waplewo, Poland
+52.812612 23.026876 Niewino Borowe 21, 17-132 Niewino Borowe, Poland
+51.475668 17.989275 Siedlików 90, 63-500 Siedlików, Poland
+51.864972 18.205587 Janków 69, 62-817 Janków, Poland
+50.523283 23.195583 Tadeusza Kościuszki, 22-440 Krasnobród, Poland
+50.815764 22.852297 Czernięcin Poduchowny 1, 23-465 Czernięcin Poduchowny, Poland
+50.71448 22.301369 Świnki 5, 23-310 Świnki, Poland
+50.135564 18.303924 Adamowicka 4, 47-440 Babice, Poland
+51.762812 22.991659 Radcze 117, 21-210 Radcze, Poland
+51.283395 19.572403 Truszczanek 10, 97-340 Truszczanek, Poland
+51.182107 19.015114 Biała 76, 98-332 Biała, Poland
+52.818804 23.700243 Skupowo 125, 17-220 Skupowo, Poland
+52.330918 20.27158 Janów 53, 05-088 Janów, Poland
+50.423195 23.306526 Łosiniec 1, 22-672 Łosiniec, Poland
+53.377976 20.959944 Adama Mickiewicza 29, 12-160 Wielbark, Poland
+53.172721 19.857141 Piastowska 10, 09-304 Zieluń, Poland
+54.217936 20.552631 Piaseczno 3, 11-220 Piaseczno, Poland
+51.834899 20.173171 Nowa Wojska 18, 96-200 Nowa Wojska, Poland
+54.031099 16.778302 Czyżewo 1, 76-012 Czyżewo, Poland
+51.455134 17.314005 Dziewiętlin 16, 56-320 Dziewiętlin, Poland
+50.118742 22.301505 Smolarzyny 200, 37-110 Smolarzyny, Poland
+54.116524 15.317575 Roby 34, 72-330 Roby, Poland
+51.933696 16.059306 Szreniawa 14, 67-410 Szreniawa, Poland
+50.602785 21.048125 0035T 66, 28-225, Poland
+52.792103 17.660619 Czewujewo 29, 88-420 Czewujewo, Poland
+53.251488 19.032841 DW548 65, 87-207, Poland
+53.651887 19.269616 Klimy 17, 14-220 Klimy, Poland
+50.408956 17.277821 Koperniki 33, 48-303 Koperniki, Poland
+50.85491 22.671992 Guzówka 11, 23-145 Guzówka, Poland
+51.249529 22.875056 Górne 27, 21-020 Górne, Poland
+52.867221 15.511662 Gorzowska, 66-500, Poland
+52.760125 14.953346 Tarnów 26, 66-433 Tarnów, Poland
+54.425706 19.593061 Bursztynowa 3, Krynica Morska, Poland
+54.61691 18.78078 helska, 84-150 Hel, Poland
+52.569671 21.205432 Wielęcin 45, 07-203 Wielęcin, Poland
+53.430054 22.807635 Hornostaje-Osada 20, 19-100 Hornostaje-Osada, Poland
+50.287001 21.3772 1152R 512, Poland
+50.753452 22.770407 Hosznia Ordynacka 105, 23-450 Hosznia Ordynacka, Poland
+51.147401 22.984834 Trawniki-Kolonia 41, 21-044 Trawniki-Kolonia, Poland
+54.375901 22.94915 Maszutkinie 18, 16-407 Maszutkinie, Poland
+52.658644 15.060579 Jeniniec 62, 66-450 Jeniniec, Poland
+54.1863 19.177493 Rakowe Pole 5, 82-100 Rakowe Pole, Poland
+54.080359 18.625078 Małżewo 1, 83-111 Małżewo, Poland
+51.130789 16.284666 Mikołajowice 36, 59-241 Mikołajowice, Poland
+53.323758 22.919613 Grodzieńska 136, 19-120 Knyszyn, Poland
+50.272466 20.022297 Zagaje Smrokowskie 30, 32-090 Zagaje Smrokowskie, Poland
+53.035849 18.592115 Polna, Toruń, Poland
+51.130185 21.626455 Śląsko 64, 27-300 Śląsko, Poland
+51.785413 22.119396 Budki 1, 21-470 Budki, Poland
+52.072517 21.763856 Waliska 80, 05-317 Waliska, Poland
+52.366699 21.420245 Józefin 16, 05-326 Józefin, Poland
+49.689008 21.389321 Osobnica 154, 38-241 Osobnica, Poland
+52.348475 19.395006 Sieraków 68, 09-500 Sieraków, Poland
+54.167695 23.168119 Orlinek 17, 16-503 Orlinek, Poland
+52.83013 18.143981 Pławin 13, 88-110 Pławin, Poland
+51.879408 23.336677 Huszcza Pierwsza 133, 21-532 Huszcza, Poland
+51.783219 22.790992 Iski 7, 21-310 Bezwola, Poland
+50.446482 17.756058 Ogiernicze 7, 48-220 Ogiernicze, Poland
+52.828938 23.488512 Kuraszewo 111, 17-207 Kuraszewo, Poland
+52.72423 22.932008 Kiersnowo 41, 17-120 Kiersnowo, Poland
+49.586637 21.499061 Kąty 7, 38-230 Kąty, Poland
+52.246581 19.509982 Kamienna 7, 99-311 Kamienna, Poland
+52.537574 19.159377 Grodztwo 1, 87-820 Grodztwo, Poland
+52.82666 18.810934 Konstantynowo 3, 87-731 Konstantynowo, Poland
+51.951959 15.17337 Kosierz 70, 66-627 Kosierz, Poland
+50.448998 18.429323 Szklarnia 2, 44-180 Kotulin, Poland
+53.206754 17.001758 Stare 14, 89-320 Stare, Poland
+51.86732 21.989657 Dychawica 43, 21-426 Dychawica, Poland
+52.619249 23.041386 Wandalin 18, 17-111 Wandalin, Poland
+51.285718 18.012866 Mianowice 10, 63-600 Mianowice, Poland
+49.775233 21.260279 Święcany 99, 38-242 Święcany, Poland
+52.438743 19.266684 Gulewo 4, 09-500 Gulewo, Poland
+50.532527 22.307717 Podosiczyna -Podbuk, 37-410, Poland
+50.994096 23.707251 Teresin 17, 22-135 Teresin, Poland
+52.624395 18.38035 Rusinowo 28, 88-150 Rusinowo, Poland
+51.284446 23.357001 Podchylinie, Poland
+50.807194 19.936858 Tęczowa 34, 29-100 Czarnca, Poland
+51.560348 20.98659 Ryki 39, 26-806 Ryki, Poland
+49.65766 19.3463 Pewel Wielka 4, 34-340 Pewel Wielka, Poland
+51.277299 22.001978 Słotwiny-Czerwone Łąki 1, 24-310 Słotwiny, Poland
+54.029923 20.571484 Kierz 5, 11-100 Kierz, Poland
+50.792063 18.583948 Osiedlowa 20, 42-793 Sieraków Śląski, Poland
+51.935768 19.839382 Kuźmy 7, 95-061 Kuźmy, Poland
+52.796663 21.449397 Drozdowo 18, 06-225 Drozdowo, Poland
+50.117096 21.409305 Nagoszyn 320A, 39-203 Nagoszyn, Poland
+52.881824 19.983206 Rostowa 1, 09-135 Rostowa, Poland
+53.258795 18.161044 Wybudowanie, 86-022 Dobrcz, Poland
+51.919573 23.163017 Grzybowa 9, 21-532 Łomazy, Poland
+53.159458 22.950421 Złotoria 142B, 16-070 Złotoria, Poland
+53.545894 23.168412 Dubasiewskie Kolonie 7, 16-150 Dubasiewskie Kolonie, Poland
+53.951067 14.4795 szlak pieszy czerwony, 72-500 Międzyzdroje, Poland
+52.487089 15.763736 Wybudowanie 12, 66-330 Pszczew, Poland
+52.298657 22.012332 Oszczerze 7A, 07-110 Oszczerze, Poland
+54.481878 18.564602 Orłowska 2, Gdynia, Poland
+51.921311 19.151197 Skórka 12, 95-045 Skórka, Poland
+50.481473 23.590363 Typin 8, 22-600 Typin, Poland
+50.877067 23.797502 DW844 28, 22-510, Poland
+50.000967 20.165874 Zakrzowiec 268, 32-003 Zakrzowiec, Poland
+50.29241 19.817541 Krzemionka 59, 32-353 Zagórowa, Poland
+53.138484 16.921615 Kasztanowa, 64-811, Poland
+51.627886 20.168884 Wielka Wola 45, 97-216 Wielka Wola, Poland
+54.291075 18.181554 Ceramiczna, 83-300 Somonino, Poland
+54.188962 17.616801 Gołczewo 50, 77-124 Gołczewo, Poland
+50.946604 15.634839 Barcinek 60, 58-512 Barcinek, Poland
+51.235444 15.28127 22 Lipca 46, 59-730 Wykroty, Poland
+49.895813 20.2728 Samołkowiec 68, 32-420 Klęczana, Poland
+52.65863 18.841782 Kryńsk 7, 87-704 Kryńsk, Poland
+51.616887 23.494159 Różanka 192, 22-211 Różanka, Poland
+51.90274 23.144014 Kozłowska 108, 21-532 Łomazy, Poland
+53.516137 15.773141 Starogrodzka 40, 78-500 Drawsko Pomorskie, Poland
+51.616567 18.817662 Sosnowa 2, 98-200 Sieradz, Poland
+51.509617 18.258279 Kuźnica Grabowska 112, 63-522 Kuźnica Grabowska, Poland
+53.140342 22.925811 Szyszkowizna 4, 16-070, Poland
+54.173343 16.265878 Lubiatowska 160, 75-668 Koszalin, Poland
+52.265272 19.30342 Gołębiewek Nowy 43, 99-300 Gołębiewek Nowy, Poland
+49.79616 20.388614 Kamionna 30, 32-732 Kamionna, Poland
+52.558946 18.952949 Gróbce 27, 87-853 Gróbce, Poland
+52.454067 18.39352 Broniszewo 36, 62-619 Broniszewo, Poland
+53.978003 22.517093 Małe Olecko 29, 19-404 Małe Olecko, Poland
+54.274023 22.169111 Juchnajcie 11, 19-500 Juchnajcie, Poland
+52.82343 16.573406 Kamionka 17, 64-720 Kamionka, Poland
+54.35982 20.70191 Molwity 1, 11-200 Molwity, Poland
+53.022872 15.663993 Nowe Osiedle 4, 73-240 Bierzwnik, Poland
+53.604276 14.980506 Krzywice 19, 72-221 Krzywice, Poland
+52.268714 19.973574 Białocin 22, 96-521 Białocin, Poland
+50.255785 22.444634 Podzwierzyniec 49, 37-300 Leżajsk, Poland
+50.662817 22.659912 Leśna, 23-440 Frampol, Poland
+50.548247 22.102422 Sanowa 30, 37-400 Nisko, Poland
+50.448076 21.543396 Słoneczna 19, 39-451 Wola Baranowska, Poland
+53.498391 19.762684 Fijewo 45, 14-260 Fijewo, Poland
+50.365613 18.332172 Adama Asnyka 45, Kędzierzyn-Koźle, Poland
+53.876883 17.947129 Dębowiec 2, 83-440 Karsin, Poland
+49.68897 21.165799 Leśna 5, Gorlice, Poland
+50.153626 22.563225 DW835 3, 37-204, Poland
+54.722673 17.532527 Lęborska 1C, 84-360 Żarnowska, Poland
+51.105971 22.710102 Majdan Kozic Dolnych 32, 21-050 Majdan Kozic Dolnych, Poland
+51.015942 19.489857 droga leśna, Poland
+50.909708 18.933648 Sportowa 41, 42-100 Kłobuck, Poland
+51.201059 18.573823 Graniczna 96, 98-300 Gaszyn, Poland
+52.520947 21.588096 Kostrzewy Józefa, 05-281, Poland
+54.620205 17.65157 Krępa Kaszubska 32, 84-351 Krępa Kaszubska, Poland
+50.240584 21.763692 Obrońców Pokoju 57A, 36-100 Kolbuszowa, Poland
+52.900916 19.775571 Jana Pawła II 23, 09-204 Rościszewo, Poland
+53.29504 19.983527 Murawki 42, 13-206, Poland
+53.089555 18.868728 Szewa 41, 87-410 Szewa, Poland
+54.042905 21.042853 Tarniny 2, 11-230 Tarniny, Poland
+52.710537 16.019788 Pławiska 1, 64-410 Pławiska, Poland
+52.609555 15.444698 Rakowo 3, 66-440 Rakowo, Poland
+53.009776 15.638096 Ostromęcko 2, 73-240 Ostromęcko, Poland
+51.287862 17.79011 Słupia pod Bralinem 54, 63-642 Słupia pod Bralinem, Poland
+49.383106 20.822848 Żegiestów 118, 33-370 Żegiestów, Poland
+52.711569 21.350139 Jesionowa 99, 07-205 Rząśnik, Poland
+50.036012 21.314187 Chotowa 94A, 39-217 Chotowa, Poland
+52.800006 19.883046 Szumanie-Pustoły 29, 09-226 Szumanie-Pustoły, Poland
+50.324786 20.967909 Parchocin 74, 28-136 Parchocin, Poland
+52.522585 17.579565 Bukowa 25/27, Gniezno, Poland
+51.184451 22.580863 Abramowicka 157E, 20-388 Lublin, Poland
+53.280165 18.626889 Firlus 41, 86-221 Firlus, Poland
+50.703845 19.152446 1 Maja 1, 42-262 Kolonia Poczesna, Poland
+53.928493 19.117451 Pietrzwałd 43, 82-400 Pietrzwałd, Poland
+54.219814 18.759434 Gdańska 4, 83-022, Poland
+51.938058 18.944442 Karnice 28, 99-200 Karnice, Poland
+52.695244 19.996827 Setropie 35, 09-210 Setropie, Poland
+52.982128 19.656481 Czarnia Duża 4, 87-510 Czarnia Duża, Poland
+52.970046 17.624221 Zaleska 15, 89-200 Królikowo, Poland

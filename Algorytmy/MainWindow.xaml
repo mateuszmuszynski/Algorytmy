@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Algorytmy"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <Canvas x:Name="canvas" Background="#00FFFFFF">
+        <Polyline x:Name="polyline" Stroke="DarkGreen" StrokeThickness="3"/>
+    </Canvas>
 </Window>
