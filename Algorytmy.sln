@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorytmy", "Algorytmy\Algorytmy.csproj", "{AC4F42A4-0962-43F8-B2B4-6EF5BB9DD814}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorytmy2", "Algorytmy2\Algorytmy2.csproj", "{04A33690-17F8-4CA5-8649-77618DFC7BE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC4F42A4-0962-43F8-B2B4-6EF5BB9DD814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC4F42A4-0962-43F8-B2B4-6EF5BB9DD814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC4F42A4-0962-43F8-B2B4-6EF5BB9DD814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04A33690-17F8-4CA5-8649-77618DFC7BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04A33690-17F8-4CA5-8649-77618DFC7BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04A33690-17F8-4CA5-8649-77618DFC7BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04A33690-17F8-4CA5-8649-77618DFC7BE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
