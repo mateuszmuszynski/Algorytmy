@@ -10,8 +10,8 @@ namespace Algorytmy
         public double Distance
         {
             get {
-                return Math.Floor(Math.Sqrt(Math.Pow(Math.Abs(From.X - To.X), 2) +
-                           Math.Pow(Math.Abs(From.Y - To.Y), 2)));
+                return Math.Sqrt(Math.Pow(Math.Abs(From.X - To.X), 2) +
+                           Math.Pow(Math.Abs(From.Y - To.Y), 2));
             }
         }
 

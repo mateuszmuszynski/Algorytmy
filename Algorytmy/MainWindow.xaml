@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Algorytmy"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Canvas x:Name="canvas" Background="#00FFFFFF">
-        <Polyline x:Name="polyline" Stroke="DarkGreen" StrokeThickness="3"/>
-    </Canvas>
+        Title="MainWindow" Height="800" Width="800">
+    <StackPanel>
+        <DockPanel><Label>Elements to take:</Label><TextBox Name="elementsToTakeTextbox"></TextBox><Label>Number of generations:</Label><TextBox MinWidth="100" Name="numberOfGenerations"></TextBox>
+            <Label>Number of 2opts</Label><TextBox Name="numberOfTwoOpts" MinWidth="100"></TextBox><CheckBox Name="OurData">Use our data</CheckBox><Button Name="calculateButton" Click="CalculateButton_OnClick">Calculate</Button></DockPanel>
+        <Label Name="distanceLabel"></Label>
+        <Canvas x:Name="canvas" Width="700" Height="700" Background="#00FFFFFF">
+            <Canvas.LayoutTransform>
+                <ScaleTransform ScaleX="1" ScaleY="-1" CenterX=".5" CenterY=".5" />
+            </Canvas.LayoutTransform>
+            <Ellipse Name="ellipse" Fill="Red" Width="10" Height="10"></Ellipse>
+            <Polyline x:Name="polyline" Stroke="DarkGreen" StrokeThickness="3"/>
+        </Canvas>
+    </StackPanel>
 </Window>

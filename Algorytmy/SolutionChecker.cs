@@ -8,7 +8,7 @@ namespace Algorytmy
 {
     public static class SolutionChecker
     {
-        public static bool Check(int[] path, int[,] distanceMatrix)
+        public static bool Check(int[] path, double[,] distanceMatrix)
         {
             var duplicatedPoints =
                 path.ToList().GroupBy(x => x).Where(g => g.Count() > 1).Select(y => y).ToList();
