@@ -33,6 +33,15 @@ namespace Algorytmy2
             }
             return new Graph(points);
         }
+        public static Graph OrderCrossover(Graph parent1,Graph parent2,int startPosition,int elementCount)
+        {
+            Point[] points =
+            for (int i=startPosition;i<startPosition+elementCount;i++)
+            {
 
+            }
+            
+            Graph child = new Graph();
+        }
     }
 }
