@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
     <StackPanel>
-        <DockPanel><Label>Elements to take:</Label><TextBox Name="elementsToTakeTextbox"></TextBox><Label>Number of generations:</Label><TextBox MinWidth="100" Name="numberOfGenerations"></TextBox>
+        <DockPanel><Label>Elements to take:</Label><TextBox Name="elementsToTakeTextbox" MinWidth="100"></TextBox><Label>Number of generations:</Label><TextBox MinWidth="100" Name="numberOfGenerations"></TextBox>
             <Label>Number of 2opts</Label><TextBox Name="numberOfTwoOpts" MinWidth="100"></TextBox><CheckBox Name="OurData">Use our data</CheckBox><Button Name="calculateButton" Click="CalculateButton_OnClick">Calculate</Button></DockPanel>
         <Label Name="distanceLabel"></Label>
         <Canvas x:Name="canvas" Width="700" Height="700" Background="#00FFFFFF">

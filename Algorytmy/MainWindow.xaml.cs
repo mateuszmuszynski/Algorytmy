@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -195,6 +196,14 @@ namespace Algorytmy
             Canvas.SetLeft(ellipse, firstItem.Y - 5);
 
             distanceLabel.Content = "Distance: " + result.Distance;
+
+            var fileData = result.Path.Select(x => (x+1).ToString()).Aggregate((current, next) => current + " " + next);
+            var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+
+            StreamWriter file = new System.IO.StreamWriter(fileName, true);
+            file.WriteLine(fileData);
+
+            file.Close();
         }
     }
 }
