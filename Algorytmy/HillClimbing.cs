@@ -41,14 +41,9 @@ namespace Algorytmy
 
             for (int i = 0; i < numberOfIterations; i++)
             {
-                var path = CreatePaths2(startCoordinateIndex, coordinates.Count, numberOfPaths, coordinates, distanceMatrix);
-                //var path = CreatePaths(startCoordinateIndex, coordinates.Count, numberOfPaths);
+                var path = CreatePaths(startCoordinateIndex, coordinates.Count, numberOfPaths);
 
-                if (numberOf2Opts != 0)
-                {
-
-                    TwoOpt(path, distanceMatrix, numberOf2Opts);
-                }
+                TwoOpt3(path, distanceMatrix, numberOf2Opts);
 
                 var optDistance = GetDistance(path, distanceMatrix);
 
@@ -64,7 +59,6 @@ namespace Algorytmy
             return new PathResult {Path = bestPath, Distance = bestPathDistance};
         }
 
-
         private double GetDistance(int[] path, double[,] distanceMatrix)
         {
             var total = 0.0;
@@ -74,54 +68,6 @@ namespace Algorytmy
                 total += distanceMatrix[path[i], path[i+1]];
             }
             return total;
-        }
-
-
-        private int[] CreatePaths2(int startItemIndex, int totalItems, int numberOfItemsToTake, List<Coordinate> coordinates, double[,] distanceMatrix)
-        {
-            int[] vertices = new int[numberOfItemsToTake + 1];
-
-            vertices[0] = startItemIndex;
-            vertices[numberOfItemsToTake] = startItemIndex;
-
-            var startItem = coordinates[startItemIndex];
-
-            var usedCoordinates = new List<Coordinate>();
-
-            usedCoordinates.Add(startItem);
-
-            Random random = new Random();
-
-            for (int i = 1; i < numberOfItemsToTake; i++)
-            {
-                var currentRandomValue = random.Next(2);
-
-                if (currentRandomValue == 0)
-                {
-
-                    var previousItem = coordinates[vertices[i - 1]];
-
-                    var closestItem = coordinates.Where(x => !usedCoordinates.Contains(x)).OrderBy(x => Distance(x, previousItem)).First();
-
-                    usedCoordinates.Add(closestItem);
-
-                    vertices[i] = coordinates.IndexOf(closestItem);
-                }
-                else
-                {
-                    var availableItems = coordinates.Where(x => !usedCoordinates.Contains(x)).ToList();
-
-                    var totalAvailableItems = availableItems.Count();
-
-                    var itemToTake = availableItems[random.Next(totalAvailableItems)];
-
-                    usedCoordinates.Add(itemToTake);
-
-                    vertices[i] = coordinates.IndexOf(itemToTake);
-                }
-            }
-
-            return vertices;
         }
 
         private int[] CreatePaths(int startItemIndex, int totalItems, int numberOfItemsToTake)
