@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorytmy2
 {
-    public class Operators
+    public static class Operators
     {
         public static List<Edge> EdgeCollection { get; set; }
         public static Graph InvertOrder(Graph baseGraph,int elementCount,int startPosition)
@@ -35,13 +35,23 @@ namespace Algorytmy2
         }
         public static Graph OrderCrossover(Graph parent1,Graph parent2,int startPosition,int elementCount)
         {
-            Point[] points =
+            Point[] points = new Point[parent1.Points.Count()];
             for (int i=startPosition;i<startPosition+elementCount;i++)
             {
-
+                points[i] = parent1.Points[i];
             }
-            
-            Graph child = new Graph();
+            int positionCopied = startPosition + elementCount;
+            int positionInserted = startPosition + elementCount;
+            for (int i=0;i<parent2.Points.Count();i++)
+            {
+                Point copiedPoint = parent2.Points[positionCopied + i % parent2.Points.Count()];
+                if (!points.Where(x => x != null).Contains(copiedPoint))
+                {
+                    points[positionInserted % parent2.Points.Count()] = copiedPoint;
+                    positionInserted ++;
+                }
+            }
+            return new Graph(points);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorytmy2.Tests;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Algorytmy2
         public MainWindow()
         {
             InitializeComponent();
+            TestOrderedCross test = new TestOrderedCross();
             DataReader rdr = new DataReader();
         }
     }
