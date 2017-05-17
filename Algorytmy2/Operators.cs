@@ -8,50 +8,54 @@ namespace Algorytmy2
 {
     public static class Operators
     {
-        public static List<Edge> EdgeCollection { get; set; }
-        public static Graph InvertOrder(Graph baseGraph,int elementCount,int startPosition)
+        public static Point[] InvertOrder(Graph baseGraph, int elementCount, int startPosition)
         {
             Point[] points = new Point[baseGraph.Points.Count()];
-            
-            for(int i=0;i< baseGraph.Points.Count();i++)
+
+            int it = 0;
+            Point[] toInvert = baseGraph.Points.ToList().GetRange(startPosition, elementCount).ToArray();
+            Point[] inverted = new Point[toInvert.Length];
+            for (int j = 0; j < (int)Math.Ceiling((double)toInvert.Length); j++)
             {
-                if(i >= startPosition && i<= startPosition + elementCount)
+                inverted[j] = toInvert[toInvert.Length - j-1];
+            }
+            for (int i = 0; i < baseGraph.Points.Count(); i++)
+            {
+                if (i >= startPosition && i <= startPosition + elementCount - 1)
                 {
-                    int it = 0;
-                    for (int j=startPosition;j<startPosition + elementCount%2;j++)
-                    {
-                        Point clipboard = points[j + it];
-                        points[j + it] = points[startPosition + elementCount - it];
-                        points[startPosition + elementCount - it] = clipboard;
-                        it++;
-                    }
+                    points[i] = inverted[i - startPosition];
                 }
                 else
                 {
                     points[i] = baseGraph.Points[i];
                 }
             }
-            return new Graph(points);
+            return points;
         }
-        public static Graph OrderCrossover(Graph parent1,Graph parent2,int startPosition,int elementCount)
+        public static Point[] OrderCrossover(Graph parent1, Graph parent2, int startPos, int count)
         {
-            Point[] points = new Point[parent1.Points.Count()];
-            for (int i=startPosition;i<startPosition+elementCount;i++)
+            int elementCount = startPos + count < parent1.Points.Count() ? count : parent1.Points.Count() - startPos - 1; 
+            int startPosition = startPos > 0 ? startPos : 1;
+            Point[] pointsFrom1 = new Point[elementCount];
+            pointsFrom1 = parent1.Points.ToList().GetRange(startPosition,elementCount).ToArray();
+            Point[] childPoints = new Point[parent1.Points.Count()];
+            for (int i = 0; i < elementCount; i++)
             {
-                points[i] = parent1.Points[i];
+                childPoints[(i + startPosition) % childPoints.Length] = pointsFrom1[i];
             }
-            int positionCopied = startPosition + elementCount;
-            int positionInserted = startPosition + elementCount;
-            for (int i=0;i<parent2.Points.Count();i++)
+            int index = startPosition + elementCount;
+            for (int j = 0; j < parent2.Points.Count(); j++)
             {
-                Point copiedPoint = parent2.Points[positionCopied + i % parent2.Points.Count()];
-                if (!points.Where(x => x != null).Contains(copiedPoint))
+                if (childPoints[index] == null)
                 {
-                    points[positionInserted % parent2.Points.Count()] = copiedPoint;
-                    positionInserted ++;
+                    if (!childPoints.Contains(parent2.Points[(startPosition + elementCount + j) % parent2.Points.Count()]))
+                    {
+                        childPoints[index] = parent2.Points[(startPosition + elementCount + j) % parent2.Points.Count()];
+                        index = (index + 1) % parent2.Points.Count();
+                    }
                 }
             }
-            return new Graph(points);
+            return childPoints;
         }
     }
 }

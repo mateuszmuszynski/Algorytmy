@@ -6,21 +6,25 @@ using System.Threading.Tasks;
 
 namespace Algorytmy2.Tests
 {
-    public class TestOrderedCross
+    public class OperatorsTest
     {
-        public List<Point> g1 = new List<Point>();
-        public List<Point> g2 = new List<Point>();
+        public List<Point> points = new List<Point>();
         public Graph gp1;
         public Graph gp2;
-        public TestOrderedCross()
+        public OperatorsTest()
         {
-            Graph gp1 = MakeGraph(g1);
-            Graph gp2 = MakeGraph(g2);
-            Operators.OrderCrossover(gp1, gp2, 3, 5);
+            MakePoints();
+            Graph gp1 = MakeGraph(false);
+            Graph gp2 = MakeGraph(true);
+            Operators.OrderCrossover(gp1, gp2, 8, 4);
+            Operators.InvertOrder(gp1, 5, 3);
         }
-        public Graph MakeGraph(List<Point> points)
+        public Graph MakeGraph(bool secondary)
         {
-            List<Point> graphTempPath = points.ToList();
+            return new Graph(secondary ? points.ToArray() : points.OrderBy(x => x.X).ToArray());
+        }
+        public void MakePoints()
+        {
             Random r = new Random();
             for (int i = 0; i < 10; i++)
             {
@@ -30,13 +34,15 @@ namespace Algorytmy2.Tests
                     Y = r.NextDouble(),
                     ID = r.Next(0, 10)
                 };
-                while (graphTempPath.Where(x => x.ID == p.ID).FirstOrDefault() != null)
+                if (points.Count > 0)
                 {
-                    p.ID = r.Next(0, 10);
+                    while (points.Where(x => x.ID == p.ID).FirstOrDefault() != null)
+                    {
+                        p.ID = r.Next(0, 10);
+                    }
                 }
-                graphTempPath.Add(p);
+                points.Add(p);
             }
-            return new Graph(graphTempPath.ToArray());
         }
     }
 }

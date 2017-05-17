@@ -24,8 +24,8 @@ namespace Algorytmy2
         public MainWindow()
         {
             InitializeComponent();
-            TestOrderedCross test = new TestOrderedCross();
-            DataReader rdr = new DataReader();
+            //OperatorsTest test = new OperatorsTest();
+            DataReader rdr = new DataReader(35);
         }
     }
 }
