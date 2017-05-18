@@ -16,6 +16,7 @@ namespace Algorytmy2
         Timer t = new Timer(24000);
         List<Point> Points { get; set; }
         public static List<Edge> Edges { get; set; }
+        public static Point[] FastestRoad; 
         public DataReader(int startIndex)
         {
             t.Elapsed += T_Elapsed;
@@ -26,7 +27,8 @@ namespace Algorytmy2
                 ReadFile();
                 CreatePaths();
                 Graph[] start = CreateFirstRoads(startIndex);
-                Operators op = new Operators();
+                FastestRoad = start[0].Points;
+                FindBestRoad(start[0],start[1]);
             }
             catch (Exception ex)
             {
@@ -34,9 +36,44 @@ namespace Algorytmy2
             }
         }
 
+        private Point[] FindBestRoad(Graph x,Graph y)
+        {
+            Point[] p = new Point[x.Points.Length];
+            Point[] q = new Point[x.Points.Length];
+            Random r = new Random();
+            t.Start();
+            if(t.Enabled)
+            {
+                int op = r.Next(0, 1);
+                int elements = r.Next(0, Count.Value);
+                int startPosition = r.Next(0, Count.Value - elements);
+                switch (op)
+                {
+                    case 0:
+                        {
+                            q = Operators.InvertOrder(x, elements, startPosition);
+                            p = Operators.InvertOrder(y, elements, startPosition);
+                            break;
+                        }
+                    case 1:
+                        {
+                            q = Operators.OrderCrossover(x, y, startPosition, elements);
+                            p = Operators.OrderCrossover(y, x, startPosition, elements);
+                            break;
+                        }
+                }
+                if(GetEdges(q).Sum(w => w.Length) > GetEdges(FastestRoad).Sum(u => u.Length))
+                {
+                    FastestRoad = q;
+                }
+                GetEdges(p).Sum(l => l.Length);
+                
+            }
+            return null;
+        }
         private void T_Elapsed(object sender, ElapsedEventArgs e)
         {
-            return 
+           
         }
 
         private void ReadFile()
@@ -74,7 +111,7 @@ namespace Algorytmy2
             {
                 foreach (Point q in Points.Except(new List<Point> { p }))
                 {
-                    if (p != q /*&& !Paths.Exists(x => x.A == q && x.B == p)*/ )
+                    if (p != q)
                     {
                         Edges.Add(new Edge(p, q));
                     }

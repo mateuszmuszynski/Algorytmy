@@ -14,14 +14,20 @@ namespace Algorytmy2.Tests
         public OperatorsTest()
         {
             MakePoints();
-            Graph gp1 = MakeGraph(false);
-            Graph gp2 = MakeGraph(true);
-            Operators.OrderCrossover(gp1, gp2, 8, 4);
+            Graph gp1 = MakeGraph(false,3);
+            Graph gp2 = MakeGraph(true,3);
+            Operators.OrderCrossover(gp1, gp2, 6, 3);
             Operators.InvertOrder(gp1, 5, 3);
         }
-        public Graph MakeGraph(bool secondary)
+        public Graph MakeGraph(bool secondary,int startIndex)
         {
-            return new Graph(secondary ? points.ToArray() : points.OrderBy(x => x.X).ToArray());
+            List<Point> pt = new List<Point>();
+            pt.Add(points.Where(x => x.ID == startIndex).First());
+            pt.AddRange(points.Where(x => x.ID != startIndex).ToList());
+            List<Point> qt = new List<Point>();
+            qt.Add(points.Where(x => x.ID == startIndex).First());
+            qt.AddRange(points.Where(x => x.ID != startIndex).OrderBy(x => x.ID).ToList());
+            return new Graph(secondary ? pt.ToArray() : qt.ToArray());
         }
         public void MakePoints()
         {
