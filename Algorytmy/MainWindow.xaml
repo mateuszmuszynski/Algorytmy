@@ -4,18 +4,88 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Algorytmy"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="800">
-    <StackPanel>
-        <DockPanel><Label>Elements to take:</Label><TextBox Name="elementsToTakeTextbox" MinWidth="100"></TextBox><Label>Number of generations:</Label><TextBox MinWidth="100" Name="numberOfGenerations"></TextBox>
-            <Label>Number of 2opts</Label><TextBox Name="numberOfTwoOpts" MinWidth="100"></TextBox><CheckBox Name="OurData">Use our data</CheckBox><Button Name="calculateButton" Click="CalculateButton_OnClick">Calculate</Button></DockPanel>
-        <Label Name="distanceLabel"></Label>
-        <Canvas x:Name="canvas" Width="700" Height="700" Background="#00FFFFFF">
-            <Canvas.LayoutTransform>
-                <ScaleTransform ScaleX="1" ScaleY="-1" CenterX=".5" CenterY=".5" />
-            </Canvas.LayoutTransform>
-            <Ellipse Name="ellipse" Fill="Red" Width="10" Height="10"></Ellipse>
-            <Polyline x:Name="polyline" Stroke="DarkGreen" StrokeThickness="3"/>
-        </Canvas>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30px"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Label>Elements to take:</Label>
+            <TextBox Name="elementsToTakeTextbox" MinWidth="100">300</TextBox>
+        </DockPanel>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Points">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Name="distanceLabel">Distance: </Label>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label>Punkt startowy:</Label>
+                        <TextBox Name="startPointTextBox" Grid.Column="1"></TextBox>
+                        <Button Grid.Column="2" Grid.ColumnSpan="2" Name="calculateButton" Click="CalculateButton_OnClick">Calculate</Button>
+                    </Grid>
+                    <Canvas Margin="10" Grid.Row="1" Grid.ColumnSpan="2" x:Name="canvas" Background="#00FFFFFF">
+                        <Canvas.LayoutTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="-1" CenterX=".5" CenterY=".5" />
+                        </Canvas.LayoutTransform>
+                        <Ellipse Name="ellipse" Fill="Red" Width="10" Height="10"></Ellipse>
+                        <Polyline x:Name="polyline" Stroke="DarkGreen" StrokeThickness="3"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Poland">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label  Name="distanceLabelMap">Distance:</Label>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label>Miasto startowe:</Label>
+                        <ComboBox Name="cityComboBox" Grid.Column="1" SelectedIndex="0">
+                            <ComboBoxItem >Bialystok</ComboBoxItem>
+                            <ComboBoxItem>Warszawa</ComboBoxItem>
+                            <ComboBoxItem>Krakow</ComboBoxItem>
+                            <ComboBoxItem>Lodz</ComboBoxItem>
+                            <ComboBoxItem>Wroclaw</ComboBoxItem>
+                            <ComboBoxItem>Poznan</ComboBoxItem>
+                            <ComboBoxItem>Gdansk</ComboBoxItem>
+                            <ComboBoxItem>Szczecin</ComboBoxItem>
+                            <ComboBoxItem>Bydgoszcz</ComboBoxItem>
+                            <ComboBoxItem>Lublin</ComboBoxItem>
+                        </ComboBox>
+                        <Button Grid.Column="2" Grid.ColumnSpan="2" Name="calculateButtonMap" Click="calculateButtonMap_Click">Calculate</Button>
+                    </Grid>
+                    <m:Map Margin="10" Grid.Row="1" Grid.ColumnSpan="2" Name="map" CredentialsProvider="AkPOfez9isoRSqVsb_nzaGn5Kqo_ZixzP7Epxfp0aTsc7G7Y9Vy5YGaZLPARVeMU" Center="51.919438, 19.145136" ZoomLevel="6">
+                        <m:MapPolygon Name="mapPolygon" Stroke="Red" StrokeThickness="1" Locations="" ></m:MapPolygon>
+                    </m:Map>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
 </Window>

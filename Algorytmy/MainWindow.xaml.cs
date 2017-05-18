@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.CodeDom;
 using System.Collections.Generic;
 using System.Globalization;
@@ -21,6 +22,9 @@ namespace Algorytmy
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    /// Bing MAPS DOWNLOAD: https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=27165
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -39,15 +43,15 @@ namespace Algorytmy
             var xDiff = maxX - minX;
             var yDiff = maxY - minY;
 
-            var scaleX = Width/xDiff*0.7;
-            var scaleY = Height/yDiff*0.7;
+            var scaleX = canvas.ActualWidth / xDiff;
+            var scaleY = canvas.ActualHeight / yDiff;
 
             var scale = scaleX > scaleY ? scaleY : scaleX;
 
             foreach (var coordinate in coordinates)
             {
-                coordinate.X = (coordinate.X - minX)*scaleX;
-                coordinate.Y = (coordinate.Y - minY)*scaleY;
+                coordinate.X = (coordinate.X - minX) * scaleX;
+                coordinate.Y = (coordinate.Y - minY) * scaleY;
             }
         }
 
@@ -60,12 +64,57 @@ namespace Algorytmy
             List<Coordinate> data;
 
             var numberOfElementsToTake = int.Parse(elementsToTakeTextbox.Text);
-            var numberOfGenerations = int.Parse(this.numberOfGenerations.Text);
-            var numberOf2Opts = int.Parse(numberOfTwoOpts.Text);
 
-            if (OurData.IsChecked.Value)
+            var startPoint = int.Parse(startPointTextBox.Text);
+
+            var loader = new DataLoader(@"..\..\test.txt", NumberStyles.Float);
+            data = loader.GetData();
+            result = hillClimbing.GetPath(data[startPoint - 1], data, numberOfElementsToTake);
+
+            scaleToFitCanvas(data.Where(x => result.Path.Contains(data.IndexOf(x))).ToList());
+
+            foreach (var child in canvas.Children)
             {
-                var cities = new List<City>
+                if (child is Polyline)
+                {
+                    ((Polyline)child).Points.Clear();
+                }
+            }
+
+            foreach (var item in result.Path)
+            {
+                var currentCoordinate = data[item];
+
+                polyline.Points.Add(new Point(currentCoordinate.X, currentCoordinate.Y));
+            }
+
+            var firstItem = data[result.Path.First()];
+
+            Canvas.SetTop(ellipse, firstItem.Y - 5);
+            Canvas.SetLeft(ellipse, firstItem.X - 5);
+
+            distanceLabel.Content = "Distance: " + result.Distance;
+
+            var fileData = result.Path.Select(x => (x + 1).ToString()).Aggregate((current, next) => current + " " + next);
+            var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+
+            StreamWriter file = new System.IO.StreamWriter(fileName, true);
+            file.WriteLine(fileData);
+
+            file.Close();
+        }
+
+        private void calculateButtonMap_Click(object sender, RoutedEventArgs e)
+        {
+            PathResult result;
+
+            var hillClimbing = new HillClimbing();
+
+            List<Coordinate> data;
+
+            var numberOfElementsToTake = int.Parse(elementsToTakeTextbox.Text);
+
+            var cities = new List<City>
                 {
                     new City
                     {
@@ -160,44 +209,31 @@ namespace Algorytmy
                 };
 
 
-                var loader = new DataLoader(@"..\..\daneNasze.txt", NumberStyles.Float);
-                data = loader.GetData();
+            var loader = new DataLoader(@"..\..\daneNasze.txt", NumberStyles.Float);
+            data = loader.GetData();
 
-                result = hillClimbing.GetPath(cities[0].Coordinate, data, numberOfElementsToTake, numberOfGenerations,
-                    numberOf2Opts);
-            }
-            else
-            {
-                var loader = new DataLoader(@"..\..\test.txt", NumberStyles.Float);
-                data = loader.GetData();
-                result = hillClimbing.GetPath(data[0], data, numberOfElementsToTake, numberOfGenerations, numberOf2Opts);
-            }
+            var selectedName = ((ComboBoxItem)cityComboBox.SelectedValue).Content;
 
-            scaleToFitCanvas(data);
+            var currentCity = cities.First(x => x.Name == (string)selectedName);
 
-            foreach (var child in canvas.Children)
-            {
-                if (child is Polyline)
-                {
-                    ((Polyline) child).Points.Clear();
-                }
-            }
+            result = hillClimbing.GetPath(currentCity.Coordinate, data, numberOfElementsToTake);
+
+            mapPolygon.Locations.Clear();
+
+            var pin = new Pushpin();
+            pin.Location = new Location(currentCity.Coordinate.X, currentCity.Coordinate.Y);
+            map.Children.Add(pin);
 
             foreach (var item in result.Path)
             {
-                var currentCoordinate = data[item];
+                var location = data[item];
 
-                polyline.Points.Add(new Point(currentCoordinate.Y, currentCoordinate.X));
+                mapPolygon.Locations.Add(new Location(location.X, location.Y));
             }
 
-            var firstItem = data[result.Path.First()];
+            distanceLabelMap.Content = "Distance: " + result.Distance;
 
-            Canvas.SetTop(ellipse, firstItem.X - 5);
-            Canvas.SetLeft(ellipse, firstItem.Y - 5);
-
-            distanceLabel.Content = "Distance: " + result.Distance;
-
-            var fileData = result.Path.Select(x => (x+1).ToString()).Aggregate((current, next) => current + " " + next);
+            var fileData = result.Path.Select(x => (x + 1).ToString()).Aggregate((current, next) => current + " " + next);
             var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
 
             StreamWriter file = new System.IO.StreamWriter(fileName, true);
