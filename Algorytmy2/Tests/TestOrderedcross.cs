@@ -16,7 +16,7 @@ namespace Algorytmy2.Tests
             MakePoints();
             Graph gp1 = MakeGraph(false,3);
             Graph gp2 = MakeGraph(true,3);
-            Operators.OrderCrossover(gp1, gp2, 6, 3);
+            Operators.OrderCrossover(gp1, gp2, 6, 34);
             Operators.InvertOrder(gp1, 5, 3);
         }
         public Graph MakeGraph(bool secondary,int startIndex)

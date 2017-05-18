@@ -32,50 +32,19 @@ namespace Algorytmy2
             }
             return points;
         }
-        //public static Point[] OrderCrossover(Graph parent1, Graph parent2, int startPos, int count)
-        //{
-        //    Point[] pointsInP1 = parent1.Points.Skip(1).ToArray();
-        //    Point[] pointsInP2 = parent2.Points.Skip(1).ToArray();
-        //    int elementCount = startPos + count < parent1.Points.Count() ? count : parent1.Points.Count() - startPos - 1; 
-        //    int startPosition = startPos > 0 ? startPos : 1;
-        //    Point[] pointsFrom1 = new Point[elementCount];
-        //    pointsFrom1 = parent1.Points.ToList().GetRange(startPosition,elementCount).ToArray();
-        //    Point[] childPoints = new Point[parent1.Points.Count()];
-        //    childPoints[0] = parent1.Points[0];
-        //    for (int i = 0; i < elementCount; i++)
-        //    {
-        //        childPoints[(i + startPosition) % childPoints.Length] = pointsFrom1[i];
-        //    }
-        //    int index = startPosition + elementCount - 1;
-        //    for (int j=1;j <pointsInP2.Count() + 1;j++)
-        //    {
-        //        if(childPoints[index% pointsInP2.Count()] == null)
-        //        {
-        //            if(!childPoints.Contains(pointsInP2[(startPosition + elementCount - 1 + j)%pointsInP2.Count()]))
-        //            {
-        //                childPoints[index%childPoints.Length] = pointsInP2[(index + j) % pointsInP2.Count()];
-        //                index = index + 1;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            index++;
-        //        }
-        //    }
-        //    return childPoints;
-        //}
 
         public static Point[] OrderCrossover(Graph parent1, Graph parent2, int startPos, int count)
         {
             int elementCount = startPos + count < parent1.Points.Count() ? count : parent1.Points.Count() - startPos - 1;
-            int startPosition = startPos > 0 ? startPos : 1;
+            int startPosition = startPos > 0 ? (startPos < parent1.Length ? startPos : parent1.Length - 1) : 1;
             Point[] pointsInP1 = parent1.Points.Skip(1).ToArray();
             Point[] pointsInP2 = parent2.Points.Skip(1).ToArray();
             Point[] child = new Point[parent1.Points.Length];
             child[0] = parent1.Points[0];
+            int length = pointsInP2.Count();
             for (int i = 0; i < elementCount; i++)
             {
-                child[startPosition + i] = parent1.Points[startPosition + 1];
+                child[startPosition + i] = parent1.Points[startPosition + i];
             }
             //indeks punktowWewnetrznych
             int index = startPosition + elementCount;
@@ -83,15 +52,15 @@ namespace Algorytmy2
             {
                 if (child[index] == null)
                 {
-                    if (!child.Contains(pointsInP2[(startPosition - 1 + elementCount + i) % pointsInP2.Length]))
+                    if (!child.Contains(pointsInP2[(startPosition - 1 + elementCount + i) % length]))
                     {
-                        child[index+1] = pointsInP2[(startPosition - 1 + elementCount + i) % pointsInP2.Length];
-                        index = (index + 1) % (pointsInP2.Length);
+                        child[index] = pointsInP2[(startPosition - 1 + elementCount + i) % length];                        
+                        index = (index + 1) % length;
                     }
                 }
                 else
                 {
-                    index = (index + 1) % pointsInP2.Length;
+                    index = (index + 1) % length;
                 }
             }
             return child;

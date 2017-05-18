@@ -24,7 +24,7 @@ namespace Algorytmy2
         public MainWindow()
         {
             InitializeComponent();
-            OperatorsTest test = new OperatorsTest();
+            //OperatorsTest test = new OperatorsTest();
             DataReader rdr = new DataReader(35);
         }
     }
