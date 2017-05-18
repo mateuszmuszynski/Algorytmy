@@ -21,12 +21,7 @@ namespace Algorytmy2
         {
             get
             {
-                length = 0;
-                foreach(Edge e in this.Edges)
-                {
-                    length += (int)e.Length;
-                }
-                return length;
+                return (int)Edges.Sum(x => x.Length);      
             }
         }
 
