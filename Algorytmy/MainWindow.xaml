@@ -86,6 +86,37 @@
                     </m:Map>
                 </Grid>
             </TabItem>
+            <TabItem Header="Method2">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Name="distanceLabel2">Distance:</Label>
+                    <Grid Grid.Row="0" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label>Punkt startowy:</Label>
+                        <TextBox Name="startPointTextBox2" Grid.Column="1"></TextBox>
+                        <Button Grid.Column="2" Grid.ColumnSpan="2" Name="calculateButton2" Click="calculateButton2_Click">Calculate</Button>
+                    </Grid>
+                    <Canvas Margin="10" Grid.Row="1" Grid.ColumnSpan="2" x:Name="canvas2" Background="#00FFFFFF">
+                        <Canvas.LayoutTransform>
+                            <ScaleTransform ScaleX="1" ScaleY="-1" CenterX=".5" CenterY=".5" />
+                        </Canvas.LayoutTransform>
+                        <Ellipse Name="ellipse2" Fill="Red" Width="10" Height="10"></Ellipse>
+                        <Polyline x:Name="polyline2" Stroke="DarkGreen" StrokeThickness="3"/>
+                    </Canvas>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

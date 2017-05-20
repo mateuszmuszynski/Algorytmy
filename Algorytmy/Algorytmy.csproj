@@ -58,6 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Genetics\DataReader.cs" />
+    <Compile Include="Genetics\Edge.cs" />
+    <Compile Include="Genetics\Graph.cs" />
+    <Compile Include="Genetics\Operators.cs" />
+    <Compile Include="Genetics\Point.cs" />
     <Compile Include="PathResult.cs" />
     <Compile Include="SolutionChecker.cs" />
     <Page Include="MainWindow.xaml">

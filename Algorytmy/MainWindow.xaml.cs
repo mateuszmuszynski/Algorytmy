@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Timers;
 
 namespace Algorytmy
 {
@@ -27,12 +28,51 @@ namespace Algorytmy
     /// Bing MAPS DOWNLOAD: https://www.microsoft.com/en-us/download/details.aspx?displaylang=en&id=27165
     public partial class MainWindow : Window
     {
+        private Algorytmy2.DataReader rdr;
+        public Algorytmy2.DataReader Rdr
+        {
+            get
+            {
+               if(rdr == null)
+                {
+                   rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox.Text), int.Parse(elementsToTakeTextbox.Text));
+                }
+                return rdr;
+            }
+        }
+        Timer t = new Timer(35000);
         public MainWindow()
         {
             InitializeComponent();
+            
+            t.Elapsed += T_Elapsed;
         }
 
+
         public void scaleToFitCanvas(List<Coordinate> coordinates)
+        {
+            var minX = coordinates.Min(x => x.X);
+            var maxX = coordinates.Max(x => x.X);
+
+            var maxY = coordinates.Max(x => x.Y);
+            var minY = coordinates.Min(x => x.Y);
+
+            var xDiff = maxX - minX;
+            var yDiff = maxY - minY;
+
+            var scaleX = canvas.ActualWidth / xDiff;
+            var scaleY = canvas.ActualHeight / yDiff;
+
+            var scale = scaleX > scaleY ? scaleY : scaleX;
+
+            foreach (var coordinate in coordinates)
+            {
+                coordinate.X = (coordinate.X - minX) * scaleX;
+                coordinate.Y = (coordinate.Y - minY) * scaleY;
+            }
+        }
+
+        public void scaleToFitCanvas(List<Algorytmy2.Point> coordinates)
         {
             var minX = coordinates.Min(x => x.X);
             var maxX = coordinates.Max(x => x.X);
@@ -96,7 +136,7 @@ namespace Algorytmy
             distanceLabel.Content = "Distance: " + result.Distance;
 
             var fileData = result.Path.Select(x => (x + 1).ToString()).Aggregate((current, next) => current + " " + next);
-            var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+            var fileName = @"C:\temp\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
 
             StreamWriter file = new System.IO.StreamWriter(fileName, true);
             file.WriteLine(fileData);
@@ -240,6 +280,63 @@ namespace Algorytmy
             file.WriteLine(fileData);
 
             file.Close();
+        }
+
+        private void calculateButton2_Click(object sender, RoutedEventArgs e)
+        {
+            t.Start();
+            rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox2.Text), int.Parse(elementsToTakeTextbox.Text));
+        }
+
+        private void T_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
+            {
+                distanceLabel2.Content = rdr.FastestRoadLength;
+
+
+
+                var startPoint = int.Parse(startPointTextBox2.Text);
+
+                var loader = new DataLoader(@"..\..\test.txt", NumberStyles.Float);
+
+
+                scaleToFitCanvas(rdr.FastestRoad.ToList());
+
+                foreach (var child in canvas2.Children)
+                {
+                    if (child is Polyline)
+                    {
+                        ((Polyline)child).Points.Clear();
+                    }
+                }
+
+                foreach (Algorytmy2.Point item in rdr.FastestRoad)
+                {
+                    var currentCoordinate = item;
+
+                    polyline2.Points.Add(new Point(currentCoordinate.X, currentCoordinate.Y));
+                    if(rdr.FastestRoad.Last() == currentCoordinate)
+                    {
+                        currentCoordinate = rdr.FastestRoad.First();
+                        polyline2.Points.Add(new Point(currentCoordinate.X, currentCoordinate.Y));
+                    }
+                }
+
+                var firstItem = rdr.FastestRoad.First();
+
+                Canvas.SetTop(ellipse2, firstItem.Y - 5);
+                Canvas.SetLeft(ellipse2, firstItem.X - 5);
+
+                var fileData = rdr.FastestRoad.Select(x => x.ID.ToString()).Aggregate((current, next) => current + " " + next);
+                var fileName = @"C:\temp\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+
+                StreamWriter file = new System.IO.StreamWriter(fileName, true);
+                file.WriteLine(fileData);
+
+                file.Close();
+            });
+            t.Stop();
         }
     }
 }
