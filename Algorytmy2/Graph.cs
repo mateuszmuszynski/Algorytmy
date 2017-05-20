@@ -16,14 +16,7 @@ namespace Algorytmy2
                 return DataReader.GetEdges(Points);
             }
         }
-        private int length;
-        public int Length
-        {
-            get
-            {
-                return (int)Edges.Sum(x => x.Length);      
-            }
-        }
+
 
         public Graph() { }
         public Graph(Point[] points)

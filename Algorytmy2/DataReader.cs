@@ -13,7 +13,7 @@ namespace Algorytmy2
     public class DataReader
     {
         int? Count;
-        Timer t = new Timer(360000);
+        Timer t = new Timer(10000);
         List<Point> Points { get; set; }
         public static List<Edge> Edges { get; set; }
         public static Point[] FastestRoad;
@@ -28,14 +28,14 @@ namespace Algorytmy2
                 Edges = new List<Edge>();
                 ReadFile();
                 CreatePaths();
-                Graph[] start = CreateFirstRoads(startIndex);
+                Graph[] start = CreateFirstRoads(startIndex, Count.Value);
                 FastestRoad = start[0].Points;
                 FastestRoadLength = (int)GetEdges(FastestRoad).Sum(u => u.Length);
                 FindBestRoad(start[0], start[1]);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Wystąpił problem z odzcyztem danych wejściowych");
+                MessageBox.Show("Wystąpił problem z odczytem danych wejściowych");
             }
         }
 
@@ -65,29 +65,57 @@ namespace Algorytmy2
                         break;
                     }
             }
-            currentLength = (int)GetEdges(q).Sum(w => w.Length);
-            if (currentLength < FastestRoadLength)
+            int qLength = (int)GetEdges(q).Sum(w => w.Length);
+            int pLength = (int)GetEdges(p).Sum(l => l.Length);
+            if (qLength < FastestRoadLength && pLength < FastestRoadLength)
             {
-                FastestRoad = q;
-                FastestRoadLength = currentLength;
+                FastestRoadLength = pLength >= qLength ? pLength : qLength;
+                FastestRoad = pLength >= qLength ? p : q;
+                FindBestRoad(new Graph(p), new Graph(q));
             }
+            else
+            {
+                if (qLength < FastestRoadLength)
+                {
+                    FastestRoad = q;
+                    FastestRoadLength = qLength;
+                    FindBestRoad(x, new Graph(q));
+                }
+                else
+                {
+                    if (pLength < FastestRoadLength)
+                    {
+                        FastestRoad = p;
+                        FastestRoadLength = pLength;
+                        FindBestRoad(new Graph(p), y);
+                    }
+                    else
+                    {
+                        FindBestRoad(x, y);
+                    }
+                }
+            }
+            currentLength = (int)GetEdges(q).Sum(w => w.Length);
+
             currentLength = (int)GetEdges(p).Sum(l => l.Length);
             if (currentLength > FastestRoadLength)
             {
                 FastestRoad = p;
                 FastestRoadLength = currentLength;
             }
-            FindBestRoad(new Graph(p), new Graph(q));
+
         }
         private void T_Elapsed(object sender, ElapsedEventArgs e)
         {
             Console.WriteLine(FastestRoadLength);
             foreach (Point p in FastestRoad)
                 Console.Write(p.ID + " =>");
+            Console.WriteLine("");
         }
 
         private void ReadFile()
         {
+            int px = 0;
             using (StreamReader file = new StreamReader(@"..\..\daneNasze.txt"))
             {
                 Random r = new Random();
@@ -104,12 +132,8 @@ namespace Algorytmy2
                         {
                             X = double.Parse(linia[0], NumberStyles.Float),
                             Y = double.Parse(linia[1], NumberStyles.Float),
-                            ID = r.Next(0, Count.Value)
+                            ID = px++
                         };
-                        while (Points.Where(x => x.ID == p.ID).FirstOrDefault() != null)
-                        {
-                            p.ID = r.Next(0, Count.Value);
-                        }
                         Points.Add(p);
                     }
                 }
@@ -145,17 +169,38 @@ namespace Algorytmy2
             return graphEdges;
         }
 
-        private Graph[] CreateFirstRoads(int startIndex)
+        private Graph[] CreateFirstRoads(int startIndex, int itemsToTake)
         {
-            List<Point> Road1 = new List<Point>();
-            List<Point> Road2 = new List<Point>();
-            Road1.Add(Points.Where(x => x.ID == startIndex).First());
-            Road1.AddRange(Points.Where(x => x.ID != startIndex).OrderBy(x => x.ID).ToList());
-            Road2.Add(Points.Where(x => x.ID == startIndex).First());
-            Road2.AddRange(Points.Where(x => x.ID != startIndex).OrderByDescending(x => x.ID).ToList());
+            List<Point> RoadShortest = new List<Point>();
+            List<Point> RoadLongest = new List<Point>();
+            List<Point> usedPoints = new List<Point>();
+            Point startPoint = Points.Where(x => x.ID == startIndex).FirstOrDefault();
+            RoadShortest.Add(startPoint);
+            RoadLongest.Add(startPoint);
+            Point previousItemShortest;
+            Point previousItemLongest;
+            for (int i = 0; i < itemsToTake - 1; i++)
+            {
+                previousItemShortest = Edges.Where(x => x.A == startPoint && !RoadShortest.Contains(x.B)).OrderBy(x => x.Length).FirstOrDefault().B;
+                RoadShortest.Add(previousItemShortest);
+                startPoint = previousItemShortest;
+            }
+            startPoint = Points.Where(x => x.ID == startIndex).FirstOrDefault();
+            for (int i = 0; i < itemsToTake - 1; i++)
+            {
+                previousItemLongest = Edges.Where(x => x.A == startPoint && !RoadLongest.Contains(x.B)).OrderByDescending(x => x.Length).FirstOrDefault().B;
+                RoadLongest.Add(previousItemLongest);
+                startPoint = previousItemLongest;
+            }
+            //List<Point> Road1 = new List<Point>();
+            //List<Point> Road2 = new List<Point>();
+            //Road1.Add(Points.;i+ Where(x => x.ID == startIndex).First());
+            //Road1.AddRange(Points.Where(x => x.ID != startIndex).OrderBy(x => x.ID).ToList());
+            //Road2.Add(Points.Where(x => x.ID == startIndex).First());
+            //Road2.AddRange(Points.Where(x => x.ID != startIndex).OrderByDescending(x => x.ID).ToList());
             Graph[] trasyPoczatkowe = new Graph[2];
-            trasyPoczatkowe[0] = new Graph(Road1.ToArray());
-            trasyPoczatkowe[1] = new Graph(Road2.ToArray());
+            trasyPoczatkowe[0] = new Graph(RoadLongest.ToArray());
+            trasyPoczatkowe[1] = new Graph(RoadShortest.ToArray());
             return trasyPoczatkowe;
         }
     }

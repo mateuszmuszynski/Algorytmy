@@ -36,7 +36,7 @@ namespace Algorytmy2
         public static Point[] OrderCrossover(Graph parent1, Graph parent2, int startPos, int count)
         {
             int elementCount = startPos + count < parent1.Points.Count() ? count : parent1.Points.Count() - startPos - 1;
-            int startPosition = startPos > 0 ? (startPos < parent1.Length ? startPos : parent1.Length - 1) : 1;
+            int startPosition = startPos > 0 ? (startPos < parent1.Points.Length ? startPos : parent1.Points.Length - 1) : 1;
             Point[] pointsInP1 = parent1.Points.Skip(1).ToArray();
             Point[] pointsInP2 = parent2.Points.Skip(1).ToArray();
             Point[] child = new Point[parent1.Points.Length];

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Algorytmy2.Tests
 {
+    /// <summary>
+    /// - wieksza populacja na start
+    /// * selekcja turniejowa (2 najlepsze osobniki w populacji i wybieram najlepsze z nich
+    /// </summary>
     public class OperatorsTest
     {
         public List<Point> points = new List<Point>();
