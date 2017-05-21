@@ -79,12 +79,13 @@ namespace Algorytmy
             {
                 var currentRandomValue = random.Next(20);
 
-                if (currentRandomValue < 21)
+                if (currentRandomValue < 10)
                 {
 
                     var previousItem = coordinates[vertices[i - 1]];
 
                     var closestItem = coordinates.Where(x => !usedCoordinates.Contains(x)).OrderBy(x => Distance(x, previousItem)).First();
+                    //var closestItem = coordinates.Where(x => !usedCoordinates.Contains(x)).OrderBy(x => Distance(x, startItem)).First();
 
                     usedCoordinates.Add(closestItem);
 
@@ -92,15 +93,20 @@ namespace Algorytmy
                 }
                 else
                 {
-                    var availableItems = coordinates.Where(x => !usedCoordinates.Contains(x)).ToList();
+                    var closestItem = coordinates.Where(x => !usedCoordinates.Contains(x)).OrderBy(x => Distance(x, startItem)).First();
+                    usedCoordinates.Add(closestItem);
 
-                    var totalAvailableItems = availableItems.Count();
+                    vertices[i] = coordinates.IndexOf(closestItem);
 
-                    var itemToTake = availableItems[random.Next(totalAvailableItems)];
+                    //var availableItems = coordinates.Where(x => !usedCoordinates.Contains(x)).ToList();
 
-                    usedCoordinates.Add(itemToTake);
+                    //var totalAvailableItems = availableItems.Count();
 
-                    vertices[i] = coordinates.IndexOf(itemToTake);
+                    //var itemToTake = availableItems[random.Next(totalAvailableItems)];
+
+                    //usedCoordinates.Add(itemToTake);
+
+                    //vertices[i] = coordinates.IndexOf(itemToTake);
                 }
             }
 

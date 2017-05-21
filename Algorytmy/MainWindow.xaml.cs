@@ -220,6 +220,14 @@ namespace Algorytmy
 
             mapPolygon.Locations.Clear();
 
+
+            var childsToRemove = map.Children.OfType<Pushpin>().Cast<UIElement>().ToList();
+
+            foreach (var child in childsToRemove)
+            {
+                map.Children.Remove(child);
+            }
+
             var pin = new Pushpin();
             pin.Location = new Location(currentCity.Coordinate.X, currentCity.Coordinate.Y);
             map.Children.Add(pin);
