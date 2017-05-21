@@ -17,7 +17,7 @@
             <TextBox Name="elementsToTakeTextbox" MinWidth="100">300</TextBox>
         </DockPanel>
         <TabControl Grid.Row="1">
-            <TabItem Header="Points">
+            <TabItem Header="Points (2opt)">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"></RowDefinition>
@@ -48,7 +48,7 @@
                     </Canvas>
                 </Grid>
             </TabItem>
-            <TabItem Header="Poland">
+            <TabItem Header="Poland (2opt)">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"></RowDefinition>
@@ -86,7 +86,7 @@
                     </m:Map>
                 </Grid>
             </TabItem>
-            <TabItem Header="Method2">
+            <TabItem Header="Points (Genetic)">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"></RowDefinition>
@@ -115,6 +115,44 @@
                         <Ellipse Name="ellipse2" Fill="Red" Width="10" Height="10"></Ellipse>
                         <Polyline x:Name="polyline2" Stroke="DarkGreen" StrokeThickness="3"/>
                     </Canvas>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Poland (Genetic)">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label  Name="distanceLabelMapGenetic">Distance:</Label>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label>Miasto startowe:</Label>
+                        <ComboBox Name="cityGeneticComboBox" Grid.Column="1" SelectedIndex="0">
+                            <ComboBoxItem >Bialystok</ComboBoxItem>
+                            <ComboBoxItem>Warszawa</ComboBoxItem>
+                            <ComboBoxItem>Krakow</ComboBoxItem>
+                            <ComboBoxItem>Lodz</ComboBoxItem>
+                            <ComboBoxItem>Wroclaw</ComboBoxItem>
+                            <ComboBoxItem>Poznan</ComboBoxItem>
+                            <ComboBoxItem>Gdansk</ComboBoxItem>
+                            <ComboBoxItem>Szczecin</ComboBoxItem>
+                            <ComboBoxItem>Bydgoszcz</ComboBoxItem>
+                            <ComboBoxItem>Lublin</ComboBoxItem>
+                        </ComboBox>
+                        <Button Grid.Column="2" Grid.ColumnSpan="2" Name="calculateButtonMapGenetic" Click="calculateButtonMapGenetic_Click">Calculate</Button>
+                    </Grid>
+                    <m:Map Margin="10" Grid.Row="1" Grid.ColumnSpan="2" Name="mapGenetic" CredentialsProvider="AkPOfez9isoRSqVsb_nzaGn5Kqo_ZixzP7Epxfp0aTsc7G7Y9Vy5YGaZLPARVeMU" Center="51.919438, 19.145136" ZoomLevel="6">
+                        <m:MapPolygon Name="mapGeneticPolygon" Stroke="Red" StrokeThickness="1" Locations="" ></m:MapPolygon>
+                    </m:Map>
                 </Grid>
             </TabItem>
         </TabControl>
