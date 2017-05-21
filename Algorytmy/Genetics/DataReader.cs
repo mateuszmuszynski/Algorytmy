@@ -13,17 +13,18 @@ namespace Algorytmy2
     public class DataReader
     {
         int? Count;
-        Timer t = new Timer(10000);
+        Timer t = new Timer(30000);
         List<Point> Points { get; set; }
         public static List<Edge> Edges { get; set; }
-        public static Point[] FastestRoad;
+        public Point[] FastestRoad;
         public int FastestRoadLength;
         int operateCtr = 0;
-        public DataReader(int startIndex)
+        public DataReader(int startIndex,int elementsToTake)
         {
             t.Elapsed += T_Elapsed;
             try
             {
+                t.Start();
                 Points = new List<Point>();
                 Edges = new List<Edge>();
                 ReadFile(400);
@@ -45,61 +46,64 @@ namespace Algorytmy2
         }
         private void FindBestRoad(Graph x, Graph y)
         {
-
-            Point[] p = new Point[x.Points.Length];
-            Point[] q = new Point[y.Points.Length];
-            Random r = new Random();
-            t.Start();
-            int op = r.Next(0, 1);
-            int elements = r.Next(0, Count.Value);
-            int startPosition = r.Next(1, Count.Value - elements);
-            int currentLength;
-            switch (op)
+            if (t.Enabled)
             {
-                case 0:
-                    {
-                        p = Operators.InvertOrder(x, elements, startPosition);
-                        q = Operators.InvertOrder(y, elements, startPosition);
-                        break;
-                    }
-                case 1:
-                    {
-                        p = Operators.OrderCrossover(x, y, startPosition, elements);
-                        q = Operators.OrderCrossover(y, x, startPosition, elements);
-                        break;
-                    }
-            }
-            Dictionary<string, int> dlugosci = new Dictionary<string, int>();
-            dlugosci.Add("x", (int)GetEdges(x.Points).Sum(a => a.Length));
-            dlugosci.Add("y", (int)GetEdges(y.Points).Sum(a => a.Length));
-            dlugosci.Add("p", (int)GetEdges(p).Sum(a => a.Length));
-            dlugosci.Add("q", (int)GetEdges(q).Sum(a => a.Length));
-            foreach(var dlugosc in dlugosci)
-            {
-                if (dlugosc.Value < FastestRoadLength)
+                Point[] p = new Point[x.Points.Length];
+                Point[] q = new Point[y.Points.Length];
+                Random r = new Random();
+                
+                int op = r.Next(0, 1);
+                int elements = r.Next(0, Count.Value);
+                int startPosition = r.Next(1, Count.Value - elements);
+                switch (op)
                 {
-                    FastestRoadLength = dlugosc.Value;
-                    switch(dlugosc.Key)
+                    case 0:
+                        {
+                            p = Operators.InvertOrder(x, elements, startPosition);
+                            q = Operators.InvertOrder(y, elements, startPosition);
+                            break;
+                        }
+                    case 1:
+                        {
+                            p = Operators.OrderCrossover(x, y, startPosition, elements);
+                            q = Operators.OrderCrossover(y, x, startPosition, elements);
+                            break;
+                        }
+                }
+                Dictionary<string, int> dlugosci = new Dictionary<string, int>();
+                dlugosci.Add("x", (int)GetEdges(x.Points).Sum(a => a.Length));
+                dlugosci.Add("y", (int)GetEdges(y.Points).Sum(a => a.Length));
+                dlugosci.Add("p", (int)GetEdges(p).Sum(a => a.Length));
+                dlugosci.Add("q", (int)GetEdges(q).Sum(a => a.Length));
+                foreach (var dlugosc in dlugosci)
+                {
+                    if (dlugosc.Value < FastestRoadLength)
                     {
-                        case "x": FastestRoad = x.Points;break;
-                        case "y": FastestRoad = y.Points;break;
-                        case "p": FastestRoad = p;break;
-                        case "q": FastestRoad = q;break;
+                        FastestRoadLength = dlugosc.Value;
+                        switch (dlugosc.Key)
+                        {
+                            case "x": FastestRoad = x.Points; break;
+                            case "y": FastestRoad = y.Points; break;
+                            case "p": FastestRoad = p; break;
+                            case "q": FastestRoad = q; break;
+                        }
                     }
                 }
-            }
-            List<Graph> nextGen = new List<Graph>();
-            foreach (var dlugosc in dlugosci.OrderBy(t => t.Value).Take(2))
-            {
-                switch (dlugosc.Key)
+                List<Graph> nextGen = new List<Graph>();
+                foreach (var dlugosc in dlugosci.OrderBy(t => t.Value).Take(2))
                 {
-                    case "x": nextGen.Add(x);break;
-                    case "y": nextGen.Add(y); break;
-                    case "p": nextGen.Add(new Graph(p)); break;
-                    case "q": nextGen.Add(new Graph(q)); break;
+                    switch (dlugosc.Key)
+                    {
+                        case "x": nextGen.Add(x); break;
+                        case "y": nextGen.Add(y); break;
+                        case "p": nextGen.Add(new Graph(p)); break;
+                        case "q": nextGen.Add(new Graph(q)); break;
+                    }
                 }
+                FindBestRoad(nextGen[0], nextGen[1]);
             }
-            FindBestRoad(nextGen[0], nextGen[1]);
+            else
+                return;
             
 
             //Point[] left = length.OrderBy(t => t).ElementAt(0);
@@ -149,12 +153,13 @@ namespace Algorytmy2
             foreach (Point p in FastestRoad)
                 Console.Write(p.ID + " =>");
             Console.WriteLine("");
+            t.Stop();
         }
 
         private void ReadFile(int PointsCount)
         {
             int px = 0;
-            using (StreamReader file = new StreamReader(@"..\..\daneNasze.txt"))
+            using (StreamReader file = new StreamReader(@"..\..\test.txt"))
             {
                 Random r = new Random();
                 while (!file.EndOfStream)
