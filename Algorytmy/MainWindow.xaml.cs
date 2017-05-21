@@ -33,21 +33,23 @@ namespace Algorytmy
         {
             get
             {
-               if(rdr == null)
+                if (rdr == null)
                 {
-                   rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox.Text), int.Parse(elementsToTakeTextbox.Text));
+                    rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox.Text), int.Parse(elementsToTakeTextbox.Text));
                 }
                 return rdr;
             }
         }
         Timer t = new Timer(35000);
+        Timer t2 = new Timer(35000);
+        Algorytmy2.Point startPoint;
         public MainWindow()
         {
             InitializeComponent();
-            
-            t.Elapsed += T_Elapsed;
-        }
 
+            t.Elapsed += T_Elapsed;
+            t2.Elapsed += T2_Elapsed;
+        }
 
         public void scaleToFitCanvas(List<Coordinate> coordinates)
         {
@@ -282,7 +284,7 @@ namespace Algorytmy
             distanceLabelMap.Content = "Distance: " + result.Distance;
 
             var fileData = result.Path.Select(x => (x + 1).ToString()).Aggregate((current, next) => current + " " + next);
-            var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+            var fileName = @"C:\temp\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
 
             StreamWriter file = new System.IO.StreamWriter(fileName, true);
             file.WriteLine(fileData);
@@ -293,7 +295,14 @@ namespace Algorytmy
         private void calculateButton2_Click(object sender, RoutedEventArgs e)
         {
             t.Start();
-            rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox2.Text), int.Parse(elementsToTakeTextbox.Text));
+            try {
+                rdr = new Algorytmy2.DataReader(int.Parse(startPointTextBox2.Text), int.Parse(elementsToTakeTextbox.Text));
+            }
+            catch(Exception)
+            {
+                t.Stop();
+            }
+            
         }
 
         private void T_Elapsed(object sender, ElapsedEventArgs e)
@@ -324,7 +333,7 @@ namespace Algorytmy
                     var currentCoordinate = item;
 
                     polyline2.Points.Add(new Point(currentCoordinate.X, currentCoordinate.Y));
-                    if(rdr.FastestRoad.Last() == currentCoordinate)
+                    if (rdr.FastestRoad.Last() == currentCoordinate)
                     {
                         currentCoordinate = rdr.FastestRoad.First();
                         polyline2.Points.Add(new Point(currentCoordinate.X, currentCoordinate.Y));
@@ -349,12 +358,6 @@ namespace Algorytmy
 
         private void calculateButtonMapGenetic_Click(object sender, RoutedEventArgs e)
         {
-            PathResult result;
-
-            var hillClimbing = new HillClimbing();
-
-            List<Coordinate> data;
-
             var numberOfElementsToTake = int.Parse(elementsToTakeTextbox.Text);
 
             var cities = new List<City>
@@ -450,47 +453,53 @@ namespace Algorytmy
                         }
                     }
                 };
-
-
-            var loader = new DataLoader(@"..\..\daneNasze.txt", NumberStyles.Float);
-            data = loader.GetData();
-
             var selectedName = ((ComboBoxItem)cityGeneticComboBox.SelectedValue).Content;
-
             var currentCity = cities.First(x => x.Name == (string)selectedName);
 
-            result = hillClimbing.GetPath(currentCity.Coordinate, data, numberOfElementsToTake);
-
-            mapGeneticPolygon.Locations.Clear();
-
-
-            var childsToRemove = mapGenetic.Children.OfType<Pushpin>().Cast<UIElement>().ToList();
-
-            foreach (var child in childsToRemove)
+            startPoint = new Algorytmy2.Point()
             {
-                mapGenetic.Children.Remove(child);
-            }
+                ID = numberOfElementsToTake,
+                X = currentCity.Coordinate.X,
+                Y = currentCity.Coordinate.Y,
+            };
+            t2.Start();
+            rdr = new Algorytmy2.DataReader(numberOfElementsToTake, startPoint);
 
-            var pin = new Pushpin();
-            pin.Location = new Location(currentCity.Coordinate.X, currentCity.Coordinate.Y);
-            mapGenetic.Children.Add(pin);
+        }
 
-            foreach (var item in result.Path)
+
+        private void T2_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            Dispatcher.Invoke(() =>
             {
-                var location = data[item];
+                mapGeneticPolygon.Locations.Clear();
+                var childsToRemove = mapGenetic.Children.OfType<Pushpin>().Cast<UIElement>().ToList();
 
-                mapGeneticPolygon.Locations.Add(new Location(location.X, location.Y));
-            }
+                foreach (var child in childsToRemove)
+                {
+                    mapGenetic.Children.Remove(child);
+                }
+                var pin = new Pushpin();
+                pin.Location = new Location(startPoint.X, startPoint.Y);
+                mapGenetic.Children.Add(pin);
 
-            distanceLabelMapGenetic.Content = "Distance: " + result.Distance;
+                foreach (Algorytmy2.Point item in rdr.FastestRoad)
+                {
+                    var location = item;
+                    mapGeneticPolygon.Locations.Add(new Location(location.X, location.Y));
+                }
 
-            var fileData = result.Path.Select(x => (x + 1).ToString()).Aggregate((current, next) => current + " " + next);
-            var fileName = @"D:\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
+                distanceLabelMapGenetic.Content = "Distance: " + rdr.FastestRoadLength;
 
-            StreamWriter file = new System.IO.StreamWriter(fileName, true);
-            file.WriteLine(fileData);
+                var fileData = rdr.FastestRoad.Select(x => x.ID.ToString()).Aggregate((current, next) => current + " " + next);
+                var fileName = @"C:\temp\result" + string.Format("{0:yyyy-MM-dd_hh-mm-ss}", DateTime.Now) + ".txt";
 
-            file.Close();
+                StreamWriter file = new System.IO.StreamWriter(fileName, true);
+                file.WriteLine(fileData);
+
+                file.Close();
+            
+            });
         }
     }
 }
